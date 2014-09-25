@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>illusion.js</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <script src="js/libgif.js"></script>
+  <script src="js/draggabilly.js"></script>
+  <script src="js/illusion.js"></script>
+  <style>
+    html {
+      height: 100%;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      text-align: center;
+      background-color: rgb(222, 222, 222);
+    }
+    footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+    .fa {
+      cursor: pointer;
+    }
+    .jsgif {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <i class="fa fa-backward"
+     onclick="illusion.pause(); illusion.speed -= 1; illusion.play();"></i>
+  <i class="fa fa-pause" onclick="illusion.pause()"></i>
+  <i class="fa fa-play" onclick="illusion.play()"></i>
+  <i class="fa fa-forward"
+     onclick="illusion.pause(); illusion.speed += 1; illusion.play();"></i>
+  <img id="gif" src="gear.gif">
+  <footer>Drag a GIF from your desktop<br>Best viewed at 100% zoom</footer>
+  <script>
+    var illusion = new Illusion(document.getElementById('gif'),
+      function(elem) {
+        document.body.appendChild(elem);
+        illusion.play();
+      });
+  </script>
+</body>
+</html>
